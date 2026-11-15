@@ -1,0 +1,53 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Mario Ramírez y Tecnológico de Monterrey
+
+
+QUÉ CUBRE
+
+El material didáctico de este repositorio:
+
+  - el texto en markdown de los notebooks de `notebooks/`
+  - las imágenes de `notebooks/imagenes/`
+  - los archivos `README` de todo el repositorio
+
+El **código** va bajo licencia MIT, y es otro archivo: ver LICENSE. El código
+dentro de las celdas de los notebooks cuenta como código.
+
+Los datos de terceros conservan la licencia de su origen; ver datos/README.md.
+
+
+QUÉ PUEDES HACER
+
+Compartirlo y adaptarlo, para cualquier fin, incluso comercial, siempre que
+des crédito. Eso incluye darlo en tu propia clase, traducirlo, recortarlo o
+construir otro taller encima.
+
+
+LA ÚNICA CONDICIÓN: ATRIBUCIÓN
+
+Da crédito razonable, enlaza a la licencia e indica si hiciste cambios.
+Puedes hacerlo de cualquier forma razonable, pero no de un modo que sugiera
+que quien licencia te respalda a ti o tu uso.
+
+Una atribución que cumple:
+
+  "Más allá del prompt: introducción a los agentes de IA", por Mario Ramírez
+  y Tecnológico de Monterrey, bajo CC BY 4.0.
+  https://github.com/TEC-DCC/agents_intro
+
+Si lo modificaste, dilo. Por ejemplo: "adaptado de […]".
+
+
+EL TEXTO LEGAL
+
+Este archivo es un resumen y no sustituye la licencia. El texto completo y
+vinculante está en:
+
+  https://creativecommons.org/licenses/by/4.0/legalcode.es
+
+Y el resumen oficial para humanos, en:
+
+  https://creativecommons.org/licenses/by/4.0/deed.es
+
+Identificador SPDX: CC-BY-4.0

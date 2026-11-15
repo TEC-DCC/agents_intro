@@ -1,0 +1,29 @@
+# Lo que corre en la laptop del asistente. Tres paquetes.
+#
+# Esta lista es, en si misma, parte del contenido del taller: se puede construir
+# un sistema multiagente funcionando con un cliente HTTP y un notebook. Lo que
+# los frameworks agregan es conveniencia, no capacidad.
+
+requests==2.32.3
+
+# Para los notebooks de la presentacion
+jupyterlab==4.3.4
+
+# El backend corre en Docker con su propio requirements.txt
+# (src/backend/requirements.txt), asi que FastAPI no va aca.
+
+# Solo para el caso de estudio del notebook 07 (NAS). Los cinco pasos del
+# taller no los necesitan: si no vas a correr ese notebook, puedes omitirlos.
+#
+# numpy va explicito aunque scikit-learn lo arrastre: el notebook y
+# src/nas_agente/laboratorio.py lo importan directo, y depender de que llegue
+# como dependencia de otro paquete se rompe sin explicacion el dia que esa
+# dependencia cambie.
+numpy==2.4.6
+scikit-learn==1.9.1
+scipy==1.17.1
+
+# Solo para el laboratorio del notebook 08, que es el unico que grafica. El
+# resto del material imprime tablas de texto a proposito: una tabla se lee en
+# el proyector y un png de matplotlib, a veces no.
+matplotlib==3.11.2

@@ -1,0 +1,7 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+
+# agentlib habla HTTP con Ollama y con los proveedores de pago. Ahora que el
+# backend importa agentlib (ver app/chat.py), la dependencia es suya tambien.
+requests==2.32.3

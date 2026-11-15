@@ -1,0 +1,70 @@
+# ============================================================================
+# TALLER — backend y frontend, en la laptop de cada asistente
+# ============================================================================
+# Imágenes chicas: sin GPU y sin modelo. Lo caro (la inferencia) vive en la
+# máquina del instructor; esto es el sistema que el agente va a manipular.
+#
+#   cd infra/taller && docker compose up -d      (o: scripts/<tu-sistema>/taller-up)
+#
+# Local y no central a propósito: si el backend se comparte, 20 personas
+# escriben en el mismo tablero y cada demo se contamina con la de al lado.
+# Lo único compartido es la inferencia, que es lo único sin estado.
+#
+# Los contextos de build apuntan a ../../src porque el código fuente vive en
+# src/ y la infraestructura aquí. Nadie teclea estas rutas: las envuelven los
+# scripts de scripts/.
+# ============================================================================
+
+services:
+  backend:
+    build:
+      context: ../../src
+      dockerfile: backend/Dockerfile
+    container_name: agenticai_backend
+    ports:
+      - "8000:8000"
+    env_file:
+      # UN solo .env, el de la raiz del repo: el mismo que leen el codigo de
+      # src/paso* y los notebooks. Tener dos era una trampa, sobre todo ahora
+      # que ahi viven las claves de API.
+      #
+      # `required: false` para que cualquier `docker compose` en esta carpeta
+      # funcione antes de que exista el .env. Sin esto, un `down` o un `config`
+      # corrido antes del primer `taller-up` falla con "env file not found",
+      # que no le dice a nadie que el archivo simplemente todavia no se creo.
+      - path: ../../.env
+        required: false
+    # Para que `host.docker.internal` funcione tambien en Linux, donde Docker
+    # no lo declara solo. Es lo que permite que un .env con `localhost` ande
+    # desde dentro del contenedor: ver agentlib/ollama.py -> base_url()
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      # El estado del dominio, para que sobreviva a un `down`. Durante el
+      # taller se reinicia seguido: ver scripts/<tu-sistema>/reiniciar-datos
+      - ../../datos:/datos
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  frontend:
+    build:
+      context: ../../src/frontend
+      dockerfile: Dockerfile
+    container_name: agenticai_frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --spider -q http://127.0.0.1:80 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s

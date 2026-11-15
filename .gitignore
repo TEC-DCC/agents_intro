@@ -1,0 +1,104 @@
+# ============================================================================
+# Lo que NO viaja a git.
+#
+# Cada bloque dice por que. Un .gitignore sin razones se vuelve una lista que
+# nadie se atreve a tocar, y entonces o se ignora de mas o se sube de mas.
+# ============================================================================
+
+# --- Configuracion local ----------------------------------------------------
+# Cada asistente tiene su propio destino y su propia IP. El .env.example SI
+# viaja: es la plantilla desde la que se copia este archivo.
+.env
+.env.local
+infra/aula/.env
+infra/taller/.env
+
+# --- Material del instructor ------------------------------------------------
+# Notas de preparacion del taller, no material del asistente.
+#
+# OJO: 25 enlaces de los notebooks y de los README apuntan aqui -sobre todo a
+# hallazgos.md, que es de donde sale la procedencia de cada cifra-. Si el repo
+# se publica con esta linea puesta, esos enlaces quedan rotos.
+planeacion/
+
+# --- Los briefs de las imagenes ---------------------------------------------
+# Los prompts con los que se generaron. Las imagenes si viajan; la receta para
+# rehacerlas, no. Ningun notebook la enlaza, asi que no rompe nada.
+notebooks/imagenes/README.md
+
+# --- Material reemplazado ---------------------------------------------------
+# Lo sustituyeron 00_localhost, 00_aula y 00_tec, que separan lo que corre el
+# instructor de lo que corre el asistente. Se queda en disco porque todavia
+# tiene partes que no se han migrado, pero publicarlo seria publicar un
+# notebook que contradice a los tres que si valen: sigue mandando a editar
+# OLLAMA_BASE_URL, que dejo de ser la perilla.
+notebooks/00_verificacion_ambiente.ipynb
+
+# --- Estado vivo del dominio ------------------------------------------------
+# La semilla SI se versiona; el estado vivo no: cada asistente lo modifica
+# durante el taller y no tiene por que viajar. El backend reescribe
+# inventario.csv en cada PUT.
+datos/inventario.csv
+datos/*.csv.tmp
+datos/estado.*
+datos/trazas*
+datos/*.db
+!datos/*.semilla.csv
+
+# --- Documentos de terceros -------------------------------------------------
+# El PDF del paper es de Elsevier y no hay licencia para redistribuirlo. Se
+# cita por DOI en el notebook 07. Ningun archivo del repo lo abre.
+datos/docs/
+
+# --- Python -----------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+# Cualquier variante: venv, .venv, .venvw, env... Las dos primeras formas no
+# alcanzaban y un ambiente llamado distinto se habria versionado.
+venv/
+.venv*/
+env/
+ENV/
+*/pyvenv.cfg
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+
+# --- Jupyter ----------------------------------------------------------------
+# Las salidas de los notebooks SI se versionan, a proposito: la prosa se
+# escribe contra ellas y la lista de verificacion de estilo.md exige que
+# coincidan. Lo que no viaja es el estado interno de Jupyter.
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+.virtual_documents/
+.jupyter/
+
+# --- Node, por si el frontend crece -----------------------------------------
+# Hoy son archivos estaticos servidos por nginx y no hay npm en el repo.
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# --- Editores y sistema -----------------------------------------------------
+# .vscode/ queda fuera a proposito: ahi vive la configuracion de cada quien, y
+# de ahi salio una variable de entorno que le gano al .env durante medio dia.
+.vscode/
+.idea/
+*.swp
+*~
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Logs y temporales ------------------------------------------------------
+*.log
+*.tmp
+*.bak

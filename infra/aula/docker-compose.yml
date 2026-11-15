@@ -1,0 +1,58 @@
+# ============================================================================
+# AULA — Ollama para todo el salón
+# ============================================================================
+# Corre SOLO en la máquina del instructor. Los asistentes no levantan esto:
+# ellos apuntan su OLLAMA_BASE_URL a la IP de esta máquina (ver scripts/<tu-sistema>/aula-ip).
+#
+#   cd infra/aula && docker compose up -d        (o: scripts/<tu-sistema>/aula-up)
+#
+# El volumen es EXTERNO y apunta al de itzae, donde qwen3.5:9b ya está
+# descargado (6.6 GB). Eso evita la descarga el día del taller. Si preferís
+# aislarlo de itzae, ejecuta scripts/<tu-sistema>/copiar-volumen-ollama una vez y cambia
+# el `name:` de abajo a `agenticai_ollama_data`.
+# ============================================================================
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: agenticai_ollama
+    ports:
+      # 0.0.0.0 explícito: el punto es que lo alcance el resto del salón.
+      # Falta además abrir el firewall del sistema -> scripts/<tu-sistema>/aula-firewall
+      - "0.0.0.0:11434:11434"
+    environment:
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3.5:9b}
+      # El modelo no se descarga de la VRAM entre pregunta y pregunta. Sin esto,
+      # cada receso cuesta una recarga de 6.6 GB y el primer asistente que
+      # pregunta después espera un minuto.
+      OLLAMA_KEEP_ALIVE: "-1"
+      # qwen3.5:9b ocupa 6.6 de los 8.1 GB de la RTX 4060. Cabe un modelo, uno
+      # solo: si Ollama intenta cargar un segundo, los dos se van a CPU.
+      OLLAMA_MAX_LOADED_MODELS: "1"
+      # Quedan ~1.5 GB para el KV cache de todas las ranuras. Pedir más
+      # paralelismo del que cabe degrada a CPU en vez de formar cola.
+      OLLAMA_NUM_PARALLEL: "${OLLAMA_NUM_PARALLEL:-4}"
+    volumes:
+      - ollama_data:/root/.ollama
+      - ./ollama/entrypoint.sh:/entrypoint.sh:ro
+    entrypoint: ["/bin/bash", "/entrypoint.sh"]
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list > /dev/null 2>&1"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      # La primera carga de un 9B desde disco no es rápida.
+      start_period: 120s
+
+volumes:
+  ollama_data:
+    external: true
+    name: itzae_itzae_ollama_data

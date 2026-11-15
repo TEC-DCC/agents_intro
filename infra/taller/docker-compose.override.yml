@@ -1,0 +1,33 @@
+# ============================================================================
+# Desarrollo local — Docker Compose lo carga automáticamente
+# ============================================================================
+# El Dockerfile del backend copia el código al construir (`COPY . .`), así que
+# sin este archivo cada cambio pide una reconstrucción completa. Aquí se monta
+# el código en vivo y se enciende el reloader de uvicorn: el cambio se ve en
+# segundos.
+#
+# En un taller donde se edita código en vivo esto no es opcional. Es también
+# lo que permite que un asistente que se atoró copie el archivo del paso
+# siguiente y lo vea correr de inmediato.
+#
+# Para correr sin el override (como lo haría un despliegue):
+#   docker compose -f docker-compose.yml up -d
+# ============================================================================
+
+services:
+  backend:
+    volumes:
+      - ../../src/backend:/app
+      # agentlib tambien, o un cambio en la capa de proveedores no se veria
+      # hasta reconstruir la imagen. La ruta /agentlib es la que declara el
+      # PYTHONPATH del Dockerfile.
+      - ../../src/agentlib:/agentlib
+      - ../../datos:/datos
+    # --reload vigila SOLO el directorio de trabajo, que es /app. Sin declarar
+    # /agentlib, un cambio en la capa de proveedores o en ollama.py se monta en
+    # el contenedor pero el proceso sigue con el modulo viejo en memoria. El
+    # sintoma es el peor: el archivo en disco dice una cosa y el backend hace
+    # otra, y reiniciar "sin motivo" lo arregla.
+    command:
+      ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000",
+       "--reload", "--reload-dir", "/app", "--reload-dir", "/agentlib"]

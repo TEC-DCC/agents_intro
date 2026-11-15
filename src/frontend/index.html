@@ -1,0 +1,119 @@
+<!doctype html>
+<!--
+  La página del taller. Tres paneles, y los tres hacen falta:
+
+    izquierda  el chat      — lo que el asistente escribe
+    centro     el tablero   — el EFECTO, que cambia solo   (pendiente del caso)
+    derecha    la traza     — el CÓMO, paso por paso
+
+  Sin el centro, un agente es indistinguible de un chatbot. Sin la derecha, es
+  una caja negra. Que las tres cosas se vean al mismo tiempo es lo que produce
+  el momento que la gente recuerda.
+
+  Hoy funciona el chat. El tablero llega con el caso de estudio.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mesa de pedidos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+  <header>
+    <h1>Mesa de pedidos</h1>
+    <label class="campo">
+      modelo
+      <select id="modelo" title="Se configura en el .env con CHAT_MODEL"></select>
+    </label>
+    <label class="campo campo-check" title="El modo de razonamiento del modelo">
+      <input type="checkbox" id="pensar"> razonar
+    </label>
+    <span id="estado">conectando…</span>
+  </header>
+
+  <main>
+    <section id="panel-chat">
+      <h2>Conversación</h2>
+
+      <!--
+        Los parámetros, plegados. Vale que estén en la interfaz y no solo en el
+        .env: moverlos en vivo y ver qué cambia es el bloque 1 del taller.
+
+        Un campo vacío NO se manda, y entonces el backend usa el valor del .env
+        o el del modelo. Eso es lo que el placeholder de cada campo dice.
+      -->
+      <details id="params">
+        <summary>parámetros <span id="params-resumen"></span></summary>
+
+        <label class="param param-ancho">
+          <span>system prompt</span>
+          <textarea id="p-system" rows="2"
+                    placeholder="vacío = el que trae el backend"></textarea>
+        </label>
+
+        <label class="param">
+          <span>temperatura</span>
+          <span class="fila">
+            <input type="range" id="p-temp-rango" min="0" max="2" step="0.05">
+            <input type="number" id="p-temp" min="0" max="2" step="0.05"
+                   placeholder="del .env">
+          </span>
+        </label>
+
+        <label class="param">
+          <span>top_k</span>
+          <input type="number" id="p-topk" min="1" step="1" placeholder="del modelo (20)">
+        </label>
+
+        <label class="param">
+          <span>top_p</span>
+          <input type="number" id="p-topp" min="0" max="1" step="0.05"
+                 placeholder="del modelo (0.95)">
+        </label>
+
+        <p class="nota">
+          <b>Subir la temperatura sola no cambia nada.</b> El modelo trae
+          <code>top_k 20</code> y <code>top_p 0.95</code>, y esos recortan los
+          candidatos antes de que la temperatura entre en juego. Para ver el no
+          determinismo: temperatura <code>1.5</code> con <code>top_k 100</code> y
+          <code>top_p 1.0</code>.
+        </p>
+
+        <div class="fila fila-botones">
+          <button type="button" id="p-demo" class="secundario"
+                  title="temperatura 1.5, top_k 100, top_p 1.0">cargar la demo</button>
+          <button type="button" id="p-reset" class="secundario">restablecer</button>
+        </div>
+      </details>
+
+      <div id="mensajes" aria-live="polite"></div>
+      <form id="entrada">
+        <textarea id="texto" rows="2" autocomplete="off"
+                  placeholder="Escribe lo que necesitás…  (Enter envía, Shift+Enter salto de línea)"></textarea>
+        <button type="submit" id="enviar">Enviar</button>
+      </form>
+      <div class="pie">
+        <button type="button" id="limpiar" class="enlace">limpiar conversación</button>
+        <span id="contador"></span>
+      </div>
+    </section>
+
+    <section id="panel-tablero">
+      <h2>Estado del sistema</h2>
+      <p class="pendiente">
+        Pendiente del caso de estudio.<br>
+        Aquí va el tablero que cambia cuando el agente hace algo.
+      </p>
+    </section>
+
+    <section id="panel-traza">
+      <h2>Qué hizo el agente</h2>
+      <ol id="pasos"></ol>
+      <p class="pendiente" id="traza-vacia">Todavía no hay pasos registrados.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

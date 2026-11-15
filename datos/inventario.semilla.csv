@@ -1,0 +1,11 @@
+sku,nombre,existencias,precio,categoria
+CAFE-500,Café molido 500g,17,180,cafe
+CAFE-250,Café molido 250g,34,95,cafe
+CAFE-GRANO-1K,Café en grano 1kg,8,340,cafe
+TE-200,Té verde 200g,0,95,te
+TE-MANZ-100,Té de manzanilla 100g,23,62,te
+AZUCAR-1K,Azúcar 1kg,42,38,endulzante
+MIEL-500,Miel de abeja 500g,11,120,endulzante
+LECHE-1L,Leche entera 1L,3,29,lacteo
+LECHE-DESL-1L,Leche deslactosada 1L,19,34,lacteo
+VASO-360,Vaso desechable 360ml (50 pz),7,85,desechable

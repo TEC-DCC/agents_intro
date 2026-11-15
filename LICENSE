@@ -1,0 +1,36 @@
+MIT License
+
+Copyright (c) 2026 Mario Ramírez y Tecnológico de Monterrey
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+NOTA SOBRE EL ALCANCE
+
+Esta licencia MIT cubre el **código** de este repositorio: `src/`, `scripts/`,
+`infra/`, `evals/` y el código dentro de las celdas de los notebooks.
+
+El **material didáctico** —el texto en markdown de los notebooks, las imágenes
+de `notebooks/imagenes/` y los archivos `README`— se distribuye bajo
+Creative Commons Attribution 4.0 International (CC BY 4.0). Ver
+[LICENSE-MATERIAL](LICENSE-MATERIAL).
+
+Los datos de terceros que el repositorio usa conservan la licencia de su
+origen; ver [datos/README.md](datos/README.md).
