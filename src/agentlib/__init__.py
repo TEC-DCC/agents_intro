@@ -8,6 +8,7 @@ no usar.
 """
 
 from .ollama import (base_url, cargar_env, chat,  # noqa: F401
-                     modelo_configurado, normalizar_argumentos, origen_url,
-                     ruta_env, streaming, ultima_medicion)
+                     llamadas_al_modelo, modelo_configurado,
+                     normalizar_argumentos, origen_url, ruta_env, streaming,
+                     ultima_medicion)
 from .traza import registrar  # noqa: F401

@@ -274,7 +274,7 @@ def chat(mensajes, herramientas=None, temperatura=0.0, pensar=False, modelo=None
                      Los roles son: system, user, assistant, tool.
         herramientas lista de esquemas JSON, o None. El modelo NO las ejecuta:
                      devuelve message["tool_calls"] pidiendo que lo hagas tú.
-        temperatura  0 para que el taller sea reproducible. Subila para ver el
+        temperatura  0 para que el taller sea reproducible. Súbela para ver el
                      no determinismo en acción (bloque 1).
         pensar       False apaga el modo de razonamiento. Importa: qwen3.5:9b
                      puede gastar miles de tokens pensando y devolver una
@@ -359,11 +359,35 @@ def chat(mensajes, herramientas=None, temperatura=0.0, pensar=False, modelo=None
     # distinto en cada idioma.
     ULTIMA_LLAMADA.clear()
     ULTIMA_LLAMADA.update({k: v for k, v in datos.items() if k != "message"})
+    CONTADOR["llamadas"] += 1
     return datos["message"]
 
 
 # La respuesta cruda de la ultima llamada a chat(), sin el message.
 ULTIMA_LLAMADA = {}
+
+# Cuantas veces se ha llamado a chat() desde el ultimo reinicio del contador.
+CONTADOR = {"llamadas": 0}
+
+
+def llamadas_al_modelo(reiniciar=False):
+    """
+    Cuantas veces se llamo a `chat()`. Con `reiniciar=True` pone el contador en
+    cero **despues** de leerlo.
+
+    Existe porque calcular las llamadas con una formula sale mal, y salio mal:
+    el notebook 05 afirmaba "dos llamadas por par, una para pedir la evidencia y
+    otra para dictaminar", y medido el 2026-11-16 son **tres**. La tercera es la
+    vuelta en la que el modelo redacta su respuesta despues de recibir el
+    resultado de la ultima tool, y es facil de olvidar porque no pide nada.
+
+    El bloque 5 cuenta llamadas para hablar de costo. Un numero deducido no
+    sirve para eso.
+    """
+    n = CONTADOR["llamadas"]
+    if reiniciar:
+        CONTADOR["llamadas"] = 0
+    return n
 
 
 def ultima_medicion():

@@ -82,7 +82,8 @@ def demo_3_no_determinismo():
     print("\n  El no determinismo se acumula con el largo. Por eso se nota en un")
     print("  agente -que genera mucho, muchas veces- y no en un clasificador que")
     print("  responde una palabra.")
-    print("  Y por eso un agente no se prueba comparando cadenas. -> bloque 5, evals/")
+    print("  Y por eso un agente no se prueba comparando cadenas: se verifica")
+    print("  por su EFECTO. -> bloque 5, el cierre del notebook 06")
 
 def demo_4_la_mentira():
     print("\n--- 4. Sin tools, el modelo INVENTA ---")

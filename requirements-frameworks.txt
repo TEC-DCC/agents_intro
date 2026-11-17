@@ -1,0 +1,46 @@
+# Solo para el notebook 09, que compara el bucle escrito a mano contra el mismo
+# agente en LangChain. NO hace falta para ninguno de los cinco bloques del
+# taller.
+#
+# Esta lista existe aparte, y el motivo es el mismo argumento del
+# requirements.txt principal: los cinco bloques corren con `requests` y un
+# notebook. Lo que los frameworks agregan es conveniencia, no capacidad.
+#
+# Lo que cuesta esa conveniencia, contado el 2026-11-17 en este ambiente:
+#
+#     requirements.txt          3 paquetes directos
+#     esto                     81 paquetes en el arbol de dependencias
+#
+# Por eso NO se instala durante el taller. La red del aula es un riesgo
+# conocido (planeacion/hallazgos.md), y 81 paquetes el dia del evento es la
+# forma mas rapida de perder veinte minutos.
+#
+#     .venvw\Scripts\python -m pip install -r requirements-frameworks.txt
+#
+# Las cuatro estan clavadas a lo que se probo. La API de LangChain se movio
+# entre versiones mientras se escribia este notebook: `create_react_agent` de
+# `langgraph.prebuilt` quedo deprecado en favor de `create_agent` de
+# `langchain.agents`. Un rango abierto habria roto el notebook en silencio.
+
+langchain==1.5.0
+
+# El cliente de Ollama para LangChain: es el que recibe el base_url, y por eso
+# el notebook 09 puede apuntar al mismo servidor que todo lo demas sin tocar
+# una sola direccion a mano.
+langchain-ollama==1.1.0
+
+# Llega como dependencia de langchain, pero va explicito porque el notebook
+# importa de ahi directo (`langchain_core.tools.tool`). Depender de que algo
+# aparezca como dependencia de otro paquete se rompe sin explicacion el dia que
+# esa dependencia cambie. Es la misma razon por la que numpy esta explicito en
+# el requirements.txt principal.
+langchain-core==1.8.1
+
+# El grafo y el checkpointer. `InMemorySaver` hace falta para la confirmacion
+# humana: sin un checkpointer, la interrupcion no tiene donde guardarse.
+langgraph==1.2.22
+
+# Tambien llega solo, y tambien va explicito: el notebook declara el esquema de
+# argumentos con `pydantic.BaseModel` y `Field`, que es lo que reemplaza a la
+# funcion `validar()` escrita a mano en el paso 4.
+pydantic==2.14.3

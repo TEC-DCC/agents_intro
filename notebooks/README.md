@@ -28,10 +28,11 @@ decir por qué. Es el tropiezo más común del minuto 0.
 | `02_primer_bucle_agentico.ipynb` | 2 | 30 | completo |
 | `03_herramientas_reales.ipynb` | 3 | 25 | completo |
 | `04_guardrails.ipynb` | 3 | 20 | completo. Cuatro celdas sin salida guardada: son las que borran y reinician |
-| `05_multiagente.ipynb` | 4 | 50 | pendiente del caso |
-| `06_que_sale_mal.ipynb` | 5 | 30 | esqueleto con el guion |
+| `05_multiagente.ipynb` | 4 | 50 | completo. **Caso propio**: consolidar dos listas de clientes, con los datos y la respuesta en [`../src/mdm/`](../src/mdm/) |
+| `06_que_sale_mal.ipynb` | 5 | 30 | completo. **Usa los dos dominios**: tres demos sobre el inventario y dos sobre los clientes. Necesita el backend arriba |
 | `07_nas_agente.ipynb` | — | — | completo. **Caso de estudio aparte**: cuatro agentes buscando predictores para NAS |
 | `08_ventana_y_memoria.ipynb` | — | — | completo. **Laboratorio aparte**: hasta dónde crece la ventana de contexto y qué cuesta |
+| `09_langchain.ipynb` | — | — | completo. **Comparación aparte**: el agente del paso 4 rehecho en LangChain. Necesita [`../requirements-frameworks.txt`](../requirements-frameworks.txt) |
 
 **Hay tres notebooks 00, uno por escenario**, y se elige por dónde corre el
 modelo: en tu máquina (`localhost`), en la laptop del instructor (`aula`) o en
@@ -40,12 +41,18 @@ de `aula` y `tec` están partidos en **lo que corre el instructor** y **lo que
 corre cada asistente**. La elección tiene que coincidir con `OLLAMA_DESTINO` del
 `.env`, y la primera celda de configuración lo comprueba y lo dice.
 
-Los dos últimos no son bloques del taller y no entran en las cuatro horas. El 07
-es el caso de estudio que sí se puede *calificar*, porque su respuesta está
-publicada; el 08 mide la restricción que explica el diseño de todos los demás, y
-es el único que grafica — necesita `matplotlib`, que por eso está en el
-`requirements.txt`. **El 08 no se corre durante el taller:** carga y descarga el
-modelo siete veces y pide hasta 15 GB.
+Los tres últimos no son bloques del taller y no entran en las cuatro horas. El
+07 es uno de los dos casos de estudio que sí se pueden *calificar*, porque su
+respuesta está publicada; el otro es el 05. El 08 mide la restricción que
+explica el diseño de todos los demás, y es el único que grafica — necesita
+`matplotlib`, que por eso está en el `requirements.txt`.
+
+**El 09 se lee al final, o nunca.** Compara el agente del paso 4 contra el mismo
+agente escrito con LangChain, y solo tiene sentido después de haber escrito el
+bucle a mano. Es el único notebook con dependencias propias.
+
+**El 08 no se corre durante el taller:** carga y descarga el modelo siete veces
+y pide hasta 15 GB.
 
 ## Notebook o archivo `.py`: cuál para qué
 

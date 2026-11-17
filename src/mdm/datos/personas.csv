@@ -1,0 +1,56 @@
+persona_id,nombre,rfc,fecha_nacimiento,ciudad
+P01,María Guadalupe Hernández Ruiz,HERM8503124N1,1985-03-12,Ciudad de México
+P02,Jorge Alberto Ramírez Soto,RASJ7811058H2,1978-11-05,Monterrey
+P03,Ana Cristina García López,GALA920621K37,1992-06-21,Guadalajara
+P04,Luis Fernando Martínez Vega,MAVL8002282R9,1980-02-28,Puebla
+P05,Patricia Sánchez Morales,SAMP750917QE5,1975-09-17,Ciudad de México
+P06,Roberto Carlos Díaz Fuentes,DIFR8804037T3,1988-04-03,Querétaro
+P07,Claudia Ivette Torres Mendoza,TOMC9012091P8,1990-12-09,León
+P08,Miguel Ángel Flores Castillo,FOCM8307255J2,1983-07-25,Ciudad de México
+P09,Verónica Jiménez Aguilar,JIAV8701149D6,1987-01-14,Mérida
+P10,Francisco Javier Rojas Peña,ROPF7210303M4,1972-10-30,Tijuana
+P11,Alejandra Núñez Salazar,NUSA9505086B1,1995-05-08,Ciudad de México
+P12,Ricardo Emilio Castro Ibarra,CAIR8108194W7,1981-08-19,Guadalajara
+P13,Gabriela Ortiz Villanueva,OIVG8903272L5,1989-03-27,Puebla
+P14,Sergio Alonso Medina Cruz,MECS7706118F3,1977-06-11,Monterrey
+P15,Laura Elena Guzmán Ríos,GURL9302167Y9,1993-02-16,Ciudad de México
+P16,Héctor Manuel Pérez Navarro,PENH7911225C2,1979-11-22,Veracruz
+P17,Diana Carolina Reyes Lozano,RELD9109041X6,1991-09-04,Cancún
+P18,Óscar Iván Domínguez Paredes,DOPO8412133K8,1984-12-13,Ciudad de México
+P19,Mónica Beatriz Silva Cabrera,SICM8605299V4,1986-05-29,Toluca
+P20,Arturo Vargas Estrada,VAEA7404076Z1,1974-04-07,Guadalajara
+P21,Juan Carlos Ramírez Soto,RASJ900714A15,1990-07-14,Ciudad de México
+P22,Javier Ramírez Salinas,RASJ900714B82,1990-07-14,Monterrey
+P23,José Luis Morales Ruiz,MORJ820309D47,1982-03-09,Puebla
+P24,José Luis Morales Ruiz,MORJ960823E13,1996-08-23,Puebla
+P25,José Antonio Mendoza Lara,MELJ620118F72,1962-01-18,Mérida
+P26,José Antonio Mendoza Lara,MELJ891002G38,1989-10-02,Mérida
+P27,Ana Patricia Fuentes Delgado,FUDA940605H26,1994-06-05,Querétaro
+P28,Ana Lucía Fuentes Delgado,FUDA970211J59,1997-02-11,Querétaro
+P29,Fernando Aguirre Beltrán,AUBF760921K84,1976-09-21,León
+P30,Raúl Zamora Ibáñez,ZAIR790513L21,1979-05-13,León
+P31,Carmen Leticia Espinoza Bravo,EIBC831108M63,1983-11-08,Ciudad de México
+P32,Raúl Santiago Herrera Campos,HECR710702N18,1971-07-02,Monterrey
+P33,Lucía Fernanda Molina Acosta,MOAL980426P45,1998-04-26,Guadalajara
+P34,Enrique Valdez Quintero,VAQE691215Q92,1969-12-15,Puebla
+P35,Rosa María Cervantes Ponce,CEPR800831R37,1980-08-31,Ciudad de México
+P36,Daniel Alejandro Marín Zúñiga,MAZD920107S64,1992-01-07,Querétaro
+P37,Isabel Cristina Ochoa Rangel,OORI861019T51,1986-10-19,Mérida
+P38,Pablo Emilio Guerrero Sandoval,GUSP750524V28,1975-05-24,Tijuana
+P39,Norma Angélica Robles Tapia,ROTN880209W75,1988-02-09,León
+P40,Javier Eduardo Cortés Miranda,COMJ940912X43,1994-09-12,Ciudad de México
+P41,Silvia Rentería Juárez,REJS730628Y16,1973-06-28,Toluca
+P42,Alberto Nava Figueroa,NAFA910303Z89,1991-03-03,Veracruz
+P43,Teresa de Jesús Alvarado Pineda,AAPT840717A52,1984-07-17,Guadalajara
+P44,Gerardo Antonio Lozada Carrillo,LOCG790123B37,1979-01-23,Monterrey
+P45,Adriana Beltrán Osorio,BEOA901106C64,1990-11-06,Ciudad de México
+P46,Manuel de Jesús Quiroz Barrera,QUBM670414D21,1967-04-14,Mérida
+P47,Karla Yadira Montes Esquivel,MOEK960802E98,1996-08-02,Puebla
+P48,Salvador Ibáñez Trejo,IATS701227F45,1970-12-27,Guadalajara
+P49,Elena Margarita Padilla Moreno,PAME850618G72,1985-06-18,Querétaro
+P50,Rubén Darío Cabrera Solís,CASR820929H39,1982-09-29,Veracruz
+P51,Mariana Esquivel Rosas,EURM930511J16,1993-05-11,Ciudad de México
+P52,Antonio Zepeda Villegas,ZEVA760205K83,1976-02-05,Toluca
+P53,Guadalupe Serrano Maldonado,SEMG881021L50,1988-10-21,León
+P54,Ignacio Bermúdez Franco,BEFI710709M27,1971-07-09,Tijuana
+P55,Paola Andrea Riveros Gutiérrez,RIGP970315N94,1997-03-15,Cancún

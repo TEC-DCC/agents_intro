@@ -45,6 +45,10 @@ datos/trazas*
 datos/*.db
 !datos/*.semilla.csv
 
+# El caso MDM del bloque 4: las dos fuentes, las personas y la respuesta SI se
+# versionan -son el caso de estudio-. La capa oro la produce cada corrida.
+src/mdm/datos/oro.csv
+
 # --- Documentos de terceros -------------------------------------------------
 # El PDF del paper es de Elsevier y no hay licencia para redistribuirlo. Se
 # cita por DOI en el notebook 07. Ningun archivo del repo lo abre.

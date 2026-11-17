@@ -1,37 +1,69 @@
 # Paso 5 — Varios agentes
 
-**Bloque 4, ~50 min. PENDIENTE del caso de estudio.**
+**Bloque 4, ~50 min.**
 
-Tres agentes con una responsabilidad clara cada uno, y un orquestador que
-reparte.
+El código de este paso **no vive aquí**: vive en [`../mdm/`](../mdm/), porque el
+bloque 4 usa un caso propio y no el inventario de los pasos 2 a 4.
 
-| Agente | Responsabilidad | Tools |
+| | |
+|---|---|
+| el código | [`../mdm/maestro.py`](../mdm/maestro.py) y [`../mdm/agentes.py`](../mdm/agentes.py) |
+| el notebook | [`../../notebooks/05_multiagente.ipynb`](../../notebooks/05_multiagente.ipynb) |
+| los datos y la respuesta | [`../mdm/datos/`](../mdm/datos/) |
+
+## Por qué el caso cambió de dominio
+
+El plan original repartía el inventario en tres agentes: Recepción entendía la
+petición, Inventario consultaba y Pedidos escribía. **Ese reparto era
+decoración.** Consultar existencias, actualizar y borrar es un solo trabajo
+partido en tres, y el asistente se iba con la idea de que multiagente es algo
+que se le hace a un sistema porque se puede.
+
+El caso de datos maestros no tiene ese problema: decidir si dos registros son la
+misma persona es juicio, y no hay regla que lo resuelva porque la evidencia se
+contradice entre sí. Ahí un modelo aporta algo que una función no.
+
+## El reparto
+
+| Agente | Responsabilidad | Permiso |
 |---|---|---|
-| **Recepción** | Entiende la petición y decide a quién le toca. | ninguna |
-| **Inventario** | Responde sobre el estado del sistema. Solo lectura. | las de consulta |
-| **Pedidos** | Crea y cancela. El único que escribe. | las de escritura + la destructiva |
+| **Normalizador** | las iniciales y abreviaturas que la normalización automática no pudo | escribe el borrador |
+| **Emparejador** | si dos registros son la misma persona | **solo lectura** |
+| **Fusionador** | qué valor sobrevive, y crea el golden record | **el destructivo** |
 
 **El reparto es la lección.** El agente que puede romper cosas es uno solo, y es
 el que tiene las reglas más estrictas. Eso no es una decisión de IA: es diseño
 de permisos, y es tan viejo como los sistemas multiusuario.
 
-Lo que hay que explicar aquí y en ningún otro lado:
+Y aquí lo destructivo no es un requisito inventado: **fusionar es
+irreversible**, porque al crear el golden record se destruye la distinción entre
+los registros que lo formaron. En un MDM de verdad los merges dudosos van a una
+persona.
 
-- **Qué viaja en el handoff.** Si Recepción le pasa a Pedidos un resumen, se
-  pierde información y aparece la demo de falla 3. Si le pasa todo el historial,
-  se paga el contexto completo en cada salto. No hay opción gratis.
-- **La traza con nombres.** El panel derecho de la página ahora dice *quién*
-  hizo cada cosa. Sin eso, depurar tres agentes no determinista es imposible.
-- **Patrones de orquestación**: router (lo que hacemos), supervisor, pipeline.
-  Treinta segundos cada uno, no más.
+## Lo que hay que explicar aquí y en ningún otro lado
 
-Y la pregunta con la que hay que cerrar el bloque, en serio y no de adorno:
+- **Qué viaja en el handoff.** Entre el Emparejador y el Fusionador viaja un
+  dictamen: dos ids, un veredicto y una línea. No viaja el razonamiento, así que
+  el Fusionador no puede dudar del veredicto que recibe. Es la falla 3 del
+  bloque 5. Mandar el historial completo tampoco es gratis.
+- **Patrones de orquestación**: router, supervisor, pipeline. Este caso es un
+  pipeline, y el del notebook 07 es un supervisor. Treinta segundos cada uno.
+- **El costo.** La corrida completa son 47 pares, 94 llamadas al modelo y unos
+  tres minutos, contra los milisegundos de la línea base sin agentes. Medido:
+  171 y 184 segundos en dos corridas.
+
+## La pregunta con la que se cierra el bloque
 
 > Comparado con el agente único del paso 4, **¿esto mejoró algo, o solo se
 > volvió más caro?**
 
-Para varias de las peticiones de prueba la respuesta honesta es "solo más caro".
-Decirlo es lo que le da credibilidad al resto. Un taller que vende multiagente
-como la respuesta a todo deja a la gente peor de lo que llegó.
+Para este caso la respuesta es que sí mejoró, y se puede decir en qué: **cero
+fusiones de más contra cinco**. Pero el reparto en *tres* agentes es más
+discutible que la decisión de usar un agente, y el Normalizador es el más débil
+de los tres. Decirlo es lo que le da credibilidad al resto.
 
-**Depende de:** los pasos 3 y 4, y del caso de estudio.
+Los números están medidos en
+[`planeacion/hallazgos.md`](../../planeacion/hallazgos.md).
+
+**Depende de:** los pasos 3 y 4. Ya no depende del caso de estudio del
+inventario.

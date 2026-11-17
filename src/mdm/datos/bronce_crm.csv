@@ -1,0 +1,44 @@
+id,nombre,correo,telefono,rfc,ciudad,alta
+C001,Ma. Guadalupe Hernandez Ruiz,maggie.hernandez@gmail.com,55 1234 5678,HERM850312,CDMX,2021-03-04
+C002,Jorge A. Ramirez Soto,jorge.ramirez78@hotmail.com,81 8123 4455,RASJ781105,Monterrey,2020-07-19
+C003,Ana Cristina Garcia Lopez,ana.garcia@gmail.com,33 3456 7890,GALA920621,Guadalajara,2022-01-11
+C004,Luis Fernando Martinez Vega,lfmartinez@outlook.com,222 345 6789,MAVL800228,Puebla,2019-11-23
+C005,Patricia Sanchez Morales,paty.sanchez@gmail.com,+52 55 2345 6789,SAMP750917,Mexico DF,2018-05-02
+C006,Roberto C. Diaz Fuentes,rcdiaz@gmail.com,442 123 4567,DIFR880403,Queretaro,2021-09-15
+C007,Claudia Torres Mendoza,claudia.torres@hotmail.com,477 234 5678,,Leon,2022-04-08
+C008,Miguel Angel Flores Castillo,maflores@gmail.com,55 3456 7891,FOCM830725,CDMX,2020-02-27
+C009,Veronica Jimenez Aguilar,vero.jimenez@gmail.com,999 123 4567,JIAV870114,Merida,2021-06-30
+C010,Francisco J. Rojas Pena,fjrojas@outlook.com,664 345 6789,ROPF721030,Tijuana,2017-10-12
+C011,Alejandra Nunez Salazar,ale.nunez@gmail.com,55 4567 8912,NUSA950508,CDMX,2023-02-14
+C012,Ricardo Castro Ibarra,ricardo.castro@gmail.com,33 2345 6781,CAIR810819,Guadalajara,2019-08-05
+C013,Gabriela Ortiz Villanueva,gaby.ortiz@hotmail.com,222 456 7890,OIVG890327,Puebla,2022-07-21
+C014,Sergio Medina Cruz,sergio.medina@gmail.com,81 8234 5566,MECS770611,Monterrey,2018-12-03
+C015,Laura Elena Guzman Rios,laura.guzman@gmail.com,55 5678 9123,GURL930216,CDMX,2023-05-19
+C016,Hector M. Perez Navarro,hmperez@outlook.com,229 123 4567,PENH791122,Veracruz,2020-09-28
+C017,Diana Reyes Lozano,diana.reyes@gmail.com,998 234 5678,RELD910904,Cancun,2022-11-07
+C018,Oscar Ivan Dominguez Paredes,oscar.dominguez@gmail.com,55 6789 1234,DOPO841213,CDMX,2019-04-16
+C019,Monica Silva Cabrera,monica.silva@hotmail.com,722 345 6789,SICM860529,Toluca,2021-01-25
+C020,Arturo Vargas Estrada,arturo.vargas@gmail.com,33 4567 8912,VAEA740407,Guadalajara,2017-06-09
+C021,Juan Carlos Ramirez Soto,jc.ramirez@gmail.com,55 7891 2345,RASJ900714,CDMX,2022-03-18
+C022,Jose Luis Morales Ruiz,jlmorales@gmail.com,222 567 8901,MORJ820309,Puebla,2020-10-04
+C023,Jose Antonio Mendoza Lara,ja.mendoza@hotmail.com,999 345 6789,MELJ620118,Merida,2016-08-22
+C024,Ana Patricia Fuentes Delgado,anapaty.fuentes@gmail.com,442 789 0123,FUDA940605,Queretaro,2023-01-30
+C025,Fernando Aguirre Beltran,contacto@panaderialaespiga.mx,477 123 4567,AUBF760921,Leon,2021-05-11
+C026,Carmen Leticia Espinoza Bravo,carmen.espinoza@gmail.com,55 8912 3456,EIBC831108,CDMX,2020-06-14
+C027,Raul Herrera Campos,raul.herrera@outlook.com,81 8345 6677,HECR710702,Monterrey,2018-03-27
+C028,Lucia Fernanda Molina Acosta,lucia.molina@gmail.com,33 5111 2233,MOAL980426,Guadalajara,2023-08-02
+C029,Enrique Valdez Quintero,enrique.valdez@hotmail.com,222 678 9012,VAQE691215,Puebla,2016-11-19
+C030,Rosa Ma. Cervantes Ponce,rosa.cervantes@gmail.com,55 9222 3344,CEPR800831,CDMX,2021-12-08
+C031,Daniel Marin Zuniga,daniel.marin@gmail.com,442 333 4455,MAZD920107,Queretaro,2022-09-23
+C032,Isabel Cristina Ochoa Rangel,isabel.ochoa@outlook.com,999 555 6677,OORI861019,Merida,2019-07-05
+C033,Pablo Guerrero Sandoval,pablo.guerrero@gmail.com,664 777 8899,GUSP750524,Tijuana,2017-02-16
+C034,Norma Angelica Robles Tapia,norma.robles@gmail.com,477 444 5566,ROTN880209,Leon,2021-10-29
+C035,Javier Cortes Miranda,javier.cortes@hotmail.com,55 1357 9246,COMJ940912,CDMX,2023-04-12
+C036,Silvia Renteria Juarez,silvia.renteria@gmail.com,722 666 7788,REJS730628,Toluca,2018-09-01
+C037,Alberto Nava Figueroa,alberto.nava@gmail.com,229 234 5678,NAFA910303,Veracruz,2022-02-20
+C038,Teresa Alvarado Pineda,teresa.alvarado@outlook.com,33 6789 1234,AAPT840717,Guadalajara,2020-11-13
+C039,Ana C. Garcia Lopez,anacristina.garcia@gmail.com,3334567890,GALA920621K37,Guadalajara,2022-01-12
+C040,Miguel A. Flores Castillo,maflores@gmail.com,55 3456 7891,,Ciudad de Mexico,2020-02-27
+C041,Juan C. Ramirez Soto,jc.ramirez@gmail.com,5578912345,RASJ900714A15,CDMX,2022-03-18
+C042,Lucia F. Molina Acosta,lucia.molina98@gmail.com,33 5111 2233,MOAL980426,Gdl,2023-08-04
+C043,Pablo Emilio Guerrero S.,pablo.guerrero@gmail.com,664 777 8899,GUSP750524V28,Tijuana,2017-02-16

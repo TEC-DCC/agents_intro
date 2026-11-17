@@ -103,6 +103,10 @@ Son dos paquetes: `requests` y `jupyterlab`. Eso es todo lo que hace falta para
 construir un sistema multiagente, y conviene mirar la lista un segundo — es
 parte del contenido del taller.
 
+Hay un segundo archivo, [`requirements-frameworks.txt`](requirements-frameworks.txt),
+y **no se instala para el taller**: son 81 paquetes que solo necesita el
+notebook 09, el que compara el bucle escrito a mano contra LangChain.
+
 ### 4. Levantar el backend y el frontend
 
 En tu propia laptop. Sin GPU y sin modelo: son imágenes chicas.
@@ -491,7 +495,6 @@ a `scripts\win\` en lugar de fallar de forma confusa.
 | [`infra/`](infra/) | Los `docker-compose`: `aula/` para Ollama, `taller/` para el resto. |
 | [`scripts/`](scripts/) | Envoltorios de arranque y los dos diagnósticos. |
 | [`datos/`](datos/) | La semilla del dominio. |
-| [`evals/`](evals/) | Los casos de prueba del bloque 5. |
 | [`slides/`](slides/) | Diapositivas de los bloques 1 y 5. |
 
 ## Cómo está repartido lo que corre dónde
@@ -549,7 +552,7 @@ Dos licencias, porque el repositorio tiene dos cosas distintas:
 
 | qué | licencia | archivo |
 |---|---|---|
-| el **código**: `src/`, `scripts/`, `infra/`, `evals/` y las celdas de código de los notebooks | MIT | [LICENSE](LICENSE) |
+| el **código**: `src/`, `scripts/`, `infra/` y las celdas de código de los notebooks | MIT | [LICENSE](LICENSE) |
 | el **material**: el texto de los notebooks, `notebooks/imagenes/` y los `README` | CC BY 4.0 | [LICENSE-MATERIAL](LICENSE-MATERIAL) |
 
 Puedes dar este taller en tu clase, traducirlo, recortarlo o construir otro
@@ -573,7 +576,8 @@ Los datos de terceros conservan la licencia de su origen; ver
 | Chat del frontend, panel de parámetros y capa de proveedores (ollama/azure/foundry/mistral) | completo |
 | Backend de inventario (CRUD sobre CSV) y su diagnóstico de Ollama | completo |
 | Estilo de la prosa ([`planeacion/estilo.md`](planeacion/estilo.md)) | fijado y aplicado |
-| Notebooks 05 y 06, tablero del frontend, paso 5, evals | **pendientes del caso de estudio** |
+| Notebooks 05 y 06, y el caso de clientes de [`src/mdm/`](src/mdm/) | completos |
+| Tablero del frontend | **pendiente del caso de estudio** |
 
 El caso de estudio está en discusión: [`planeacion/caso-de-estudio.md`](planeacion/caso-de-estudio.md).
 Lo que ya está hecho es lo que no depende del dominio.
